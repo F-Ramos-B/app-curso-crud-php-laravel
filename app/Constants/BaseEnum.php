@@ -17,8 +17,6 @@ abstract class BaseEnum
         $values = collect(static::declareValuesByCodigo());
         static::$valuesByCodigo = $values->keyBy('codigo');
         static::$valuesByNome = $values->keyBy('nome');
-        error_log('Por codigo: ' . json_encode(static::$valuesByCodigo));
-        error_log('Por nome: ' . json_encode(static::$valuesByNome));
     }
 
     public static function fromCodigo(int $codigo): EnumObject

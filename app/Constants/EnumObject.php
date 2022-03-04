@@ -8,19 +8,19 @@ class EnumObject implements JsonSerializable
 {
 
     private int $codigo;
-    private string $descricao;
+    private string $nome;
 
-    public function __construct(int $codigo, string $descricao) {
+    public function __construct(int $codigo, string $nome) {
         $this->codigo = $codigo;
-        $this->descricao = $descricao;
+        $this->nome = $nome;
     }
 
     public function getCodigo(): int {
         return $this->codigo;
     }
 
-    public function getDescricao(): string {
-        return $this->descricao;
+    public function getNome(): string {
+        return $this->nome;
     }
 
     public function jsonSerialize(): mixed
