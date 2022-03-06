@@ -11,7 +11,7 @@ class Curso extends BaseModel
 
     public function professor()
     {
-        return $this->belongsTo(Usuario::class, 'usuario_id', 'id');
+        return $this->belongsTo(Usuario::class, 'professor_id', 'id');
     }
 
     public function alunos()

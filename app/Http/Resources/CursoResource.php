@@ -19,7 +19,7 @@ class CursoResource extends JsonResource
             'nome' => $this->nome,
             'descricao' => $this->descricao,
             /* 'professor' => ProfessorResource::make($this->whenLoaded('professor')) */
-            'professor' => ProfessorResource::make($this->professor()->first())
+            'professor' => UsuarioResource::make($this->professor()->first())
         ];
     }
 }

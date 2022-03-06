@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Constants\EnumTipoUsuario;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProfessorResource extends JsonResource
+class UsuarioResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,6 +20,9 @@ class ProfessorResource extends JsonResource
             'nome' => $this->nome,
             'email' => $this->email,
             'dataVerificacaoEmail' => $this->data_verificacao_email,
+            'idade' => $this->idade,
+            'formacao' => $this->formacao,
+            'dataCriacao' => $this->created_at,
             'tipo' => EnumTipoUsuario::fromCodigo($this->tipo)->getNome()
         ];
     }

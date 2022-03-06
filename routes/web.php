@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/listar-usuarios', [UserController::class, 'getUsuarios']);
+
+Route::get('/listar-alunos-com-cursos', [UserController::class, 'getAlunosComCursos']);
