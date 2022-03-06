@@ -7,8 +7,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 class Usuario extends BaseModel
 {
 
-    protected $table = 'usuarios';
-
     protected $hidden = ['senha'];
 
     /**

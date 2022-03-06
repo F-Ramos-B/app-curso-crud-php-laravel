@@ -18,10 +18,10 @@ class AlunoSeeder extends Seeder
     {
         $cursos = Curso::all();
 
-        Usuario::factory(200)->create([
+        Usuario::factory(20)->create([
             'tipo' => EnumTipoUsuario::ALUNO()->getCodigo()
         ])->each(function ($aluno) use ($cursos) {
-            $aluno->cursosInscritos()->attach($cursos->random(10));
+            $aluno->cursosInscritos()->attach($cursos->random(rand(3, 10)));
         });
     }
 }

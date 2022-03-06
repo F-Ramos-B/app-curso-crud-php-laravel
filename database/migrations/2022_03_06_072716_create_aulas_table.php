@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cursos', function (Blueprint $table) {
+        Schema::create('aulas', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nome');
-            $table->string('descricao');
-            $table->foreignUuid('professor_id')->references('id')->on('usuarios');
+            $table->integer('duracao');
+            $table->foreignUuid('curso_id')->references('id')->on('cursos');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cursos');
+        Schema::dropIfExists('aulas');
     }
 };

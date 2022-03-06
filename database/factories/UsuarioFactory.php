@@ -2,17 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Utils\EntityOrderedUUIDGenerator;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UsuarioFactory extends Factory
+class UsuarioFactory extends BaseFactory
 {
-
-    protected $table = 'usuarios';
 
     /**
      * Define the model's default state.
@@ -21,8 +17,7 @@ class UsuarioFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'id' => EntityOrderedUUIDGenerator::generate(),
+        return array_merge(parent::definition(), [
             'nome' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'data_verificacao_email' => now(),
@@ -31,7 +26,7 @@ class UsuarioFactory extends Factory
             'formacao' => $this->faker->text(),
             'senha' => $this->faker->password(),
             'remember_token' => Str::random(10),
-        ];
+        ]);
     }
 
     /**
