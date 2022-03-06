@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('status')->default(1);
             $table->foreignUuid('aluno_id')->references('id')->on('usuarios');
             $table->foreignUuid('curso_id')->references('id')->on('cursos');
-            $table->softDeletes();
         });
     }
 
