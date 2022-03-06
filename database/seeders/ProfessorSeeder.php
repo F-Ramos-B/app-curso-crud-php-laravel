@@ -18,7 +18,7 @@ class ProfessorSeeder extends Seeder
     public function run()
     {
         /* $cursos = Curso::factory(1000)->make(); */
-        Usuario::factory(5)->create([
+        Usuario::factory(50)->create([
             'tipo' => EnumTipoUsuario::PROFESSOR()->getCodigo()
         ])->each(function ($usuario) {
             $usuario->cursos()->saveMany(Curso::factory(rand(3, 10))->make());

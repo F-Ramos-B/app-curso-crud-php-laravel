@@ -13,4 +13,9 @@ class Curso extends BaseModel
     {
         return $this->belongsTo(Usuario::class, 'usuario_id', 'id');
     }
+
+    public function alunos()
+    {
+        return $this->belongsToMany(Usuario::class, 'aluno_curso', 'curso_id', 'aluno_id')->withPivot('ativo', 'nota')->withTimestamps();
+    }
 }

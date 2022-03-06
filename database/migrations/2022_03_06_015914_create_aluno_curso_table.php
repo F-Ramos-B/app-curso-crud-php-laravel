@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cursos', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('nome');
-            $table->string('descricao');
-            $table->foreignUuid('professor_id')->references('id')->on('usuarios');
+        Schema::create('aluno_curso', function (Blueprint $table) {
+            $table->primary(['aluno_id', 'curso_id']);
             $table->timestamps();
+            $table->integer('nota')->nullable();
+            $table->integer('status')->default(1);
+            $table->foreignUuid('aluno_id')->references('id')->on('usuarios');
+            $table->foreignUuid('curso_id')->references('id')->on('cursos');
             $table->softDeletes();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cursos');
+        Schema::dropIfExists('aluno_curso');
     }
 };
